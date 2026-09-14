@@ -13,6 +13,15 @@ dist/
 .next/
 out/
 .zhihu-cli/
+.ccg/
+.codex/
+.box-agent/
+.workbuddy/
+.workflow/
+zhihu-next/
 
-# ---- 大体积媒体：单文件超过 100MB 会被 GitHub 拒绝推送 ----
+# ---- 不进入公开仓库的大体积或提交材料 ----
+*.mp4
 *.mov
+*.pdf
+*.zip
