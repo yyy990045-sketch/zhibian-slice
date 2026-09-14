@@ -1,0 +1,31 @@
+{
+  "_comment": "知辩演示语料清单样例（数据与代码分离，构建/部署期可替换）。实际演示数据在 src/mockData.js（浏览器直接 import，零构建）；如需更换演示语料，编辑该文件即可。若后续数据量大，可将话题数据抽取为 JSON 并按此结构加载。",
+  "version": "2026-08-28",
+  "topics": [
+    {
+      "id": "ai-replace-dev",
+      "query": "AI 会不会取代程序员",
+      "demo": true,
+      "directAnswer": {
+        "answer": "（演示）官方直答风格总结正文…",
+        "citations": []
+      },
+      "items": [
+        {
+          "id": "a1",
+          "title": "示例标题",
+          "excerpt": "示例正文片段",
+          "author": "示例作者",
+          "publishTime": "2026-08-01",
+          "relevanceScore": 0.9,
+          "authorityLevel": 4,
+          "voteupCount": 1200,
+          "commentCount": 200,
+          "featuredComment": "示例精选评论",
+          "url": "https://www.zhihu.com/question/<id>/answer/"
+        }
+      ]
+    }
+  ],
+  "favorites": []
+}

@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "version": 1,
+    "split": "holdout",
+    "purpose": "独立留出集模板。只填入未参与词表/规则调整的真实知乎回答，并由人工标注 expected。",
+    "independence": "待填写：说明样本来源、采样日期、标注人与未参与调优的承诺。",
+    "label_guide": "expected 只能是 support、oppose、conditional、insufficient"
+  },
+  "cases": []
+}

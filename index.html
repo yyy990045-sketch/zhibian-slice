@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A3D62'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='34' font-family='sans-serif' fill='white'%3E辩%3C/text%3E%3C/svg%3E" />
+  <title>知辩 Zhibian｜知乎观点学习和立场校准工具</title>
+  <link rel="stylesheet" href="styles.css?v=20260914-02" />
+  <link rel="stylesheet" href="assets/reference-topic-cards.css?v=20260913-01" />
+  <link rel="stylesheet" href="assets/home-refresh.css?v=20260914-01" />
+  <link rel="preload" as="image" href="assets/topic-cards/learning.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/topic-cards/ai.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/topic-cards/career.webp" fetchpriority="high" />
+</head>
+<body data-provider="mock">
+  <header class="site">
+    <div class="wrap header-shell">
+      <a class="brand-lockup" id="homeLink" href="#" aria-label="返回知辩首页">
+        <span class="logo">知<span class="mark">辩</span> <span class="brand-latin">Zhibian</span></span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="tag">知乎观点学习和立场校准工具</span>
+      </a>
+      <div class="header-actions">
+        <span class="guest-badge"><span class="guest-icon" aria-hidden="true">●</span> 知乎 · 游客体验</span>
+        <span class="zhihu-badge hidden" id="zhihuStatus">知乎 · 未连接</span>
+        <a class="about-link" href="#about">关于知辩</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap app-shell">
+    <section class="home-screen" id="homeScreen" aria-label="知辩首页">
+      <div class="hero">
+        <div class="hero-layout">
+          <div class="hero-main">
+            <p class="eyebrow">知乎社区 · 观点学习和立场校准</p>
+            <h1>先表达观点，<br />再读知乎，<br />最后<i class="hl">重新判断</i>。</h1>
+            <p class="sub">先留下自己的判断，再阅读一条最值得看的知乎来源，理解关键分歧和成立条件，最后重新判断。</p>
+            <p class="search-prompt">输入一个你已有看法的争议问题</p>
+            <div class="search-row">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <input id="q" type="text" placeholder="例如：AI 会不会取代程序员？" aria-label="输入一个你已有看法的争议问题" />
+              <button id="searchBtn" class="primary" disabled>先表态 <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="search-hint">表态 → 阅读知乎分歧 → 再次判断</p>
+            <div class="sample-topics" aria-label="示例话题">
+              <span>试试这些话题：</span>
+              <button type="button" class="chip" data-topic="考研和直接就业，哪个更值得">考研和直接就业</button>
+              <button type="button" class="chip" data-topic="年轻人要不要买房">年轻人要不要买房</button>
+              <button type="button" class="chip" data-topic="AI 会不会取代程序员">AI 会不会取代程序员</button>
+            </div>
+            <div class="status-row">
+              <div class="status" id="status" role="status" aria-live="polite">游客可直接体验 · 无需登录</div>
+            </div>
+          </div>
+          <div class="hero-side">
+            <aside class="hero-route-card" aria-label="知辩体验路径">
+              <p class="panel-kicker">三站路线</p>
+              <div class="hero-route-step"><span class="hero-route-index">01</span><span><strong>先留判断</strong><small>不让别人的高赞先替你表态</small></span></div>
+              <div class="hero-route-step"><span class="hero-route-index">02</span><span><strong>阅读分歧</strong><small>看见支持、反对和条件边界</small></span></div>
+              <div class="hero-route-step"><span class="hero-route-index">03</span><span><strong>重新判断</strong><small>理由变具体，也算一次学习</small></span></div>
+            </aside>
+            <div class="controls">
+              <span class="controls-hint">体验收藏夹观点分析（预览）</span>
+              <button type="button" id="favBtn" class="fav-btn">查看收藏夹分析演示</button>
+              <span class="controls-note">演示功能，本次不读取你的知乎账号数据</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="topic-recommendations reference-topic-cards" aria-label="推荐话题">
+        <div class="section-heading">
+          <div>
+            <p class="panel-kicker visually-muted-kicker">从一个具体问题开始</p>
+            <h2>推荐话题</h2>
+          </div>
+          <span class="section-note">三条稳定演示路线</span>
+        </div>
+        <div class="topic-grid">
+          <button class="topic-card topic-card-learning" type="button" data-topic="年轻人是否应该尽早开始攒钱">
+            <span class="topic-card-copy">
+              <span class="topic-card-kicker">学习成长</span>
+              <strong>年轻人是否应该尽早开始攒钱？</strong>
+              <small>从消费观、人生规划到风险应对，不同的人有不同的答案。</small>
+              <span class="topic-card-action">开始这个观点测试 →</span>
+            </span>
+            <span class="topic-card-media" aria-hidden="true"><img src="assets/topic-cards/learning.webp" alt="" loading="eager" fetchpriority="high" decoding="sync" /></span>
+            <span class="topic-card-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="topic-card topic-card-ai" type="button" data-topic="AI 会不会取代程序员">
+            <span class="topic-card-copy">
+              <span class="topic-card-kicker">AI / 社会争议</span>
+              <strong>AI 会不会取代程序员？</strong>
+              <small>从技术发展、产业趋势到人的不同留代性，知乎上有大量讨论。</small>
+              <span class="topic-card-action">开始这个观点测试 →</span>
+            </span>
+            <span class="topic-card-media" aria-hidden="true"><img src="assets/topic-cards/ai.webp" alt="" loading="eager" fetchpriority="high" decoding="sync" /></span>
+            <span class="topic-card-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="topic-card topic-card-career" type="button" data-topic="考研和直接就业，哪个更值得">
+            <span class="topic-card-copy">
+              <span class="topic-card-kicker">职业选择</span>
+              <strong>考研和直接就业，哪个更值得？</strong>
+              <small>不同路径对应不同的人生可能，也有完全不同的风险和机会。</small>
+              <span class="topic-card-action">开始这个观点测试 →</span>
+            </span>
+            <span class="topic-card-media" aria-hidden="true"><img src="assets/topic-cards/career.webp" alt="" loading="eager" fetchpriority="high" decoding="sync" /></span>
+            <span class="topic-card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+      <section class="hot-panel hidden" id="hotBox" aria-label="知乎热榜">
+        <div class="hot-header">
+          <div class="hot-heading">
+            <span class="hot-label" id="hotLabel">知乎热榜示例 · 演示</span>
+            <span class="hot-note">不知道测什么时，点一条开始</span>
+          </div>
+          <button type="button" class="hot-toggle" id="hotToggle" hidden aria-controls="hotList">展开全部</button>
+        </div>
+        <ol class="hot-list" id="hotList"></ol>
+      </section>
+      <div class="fav-panel hidden" id="favPanel">
+        <span class="lbl" id="favPanelLabel">选择一个演示收藏夹，查看观点分析预览：</span>
+        <div class="chips" id="favChips"></div>
+      </div>
+    </section>
+
+    <section class="results hidden" id="results" aria-label="知乎观点阅读工作台">
+      <div class="journey-heading">
+        <div class="journey-heading-topline">
+          <div class="journey-topic-line"><span class="journey-kicker">话题</span><span class="demo-badge hidden" id="demoBadge">演示数据 · 来源结构与真实体验一致</span></div>
+          <div class="journey-heading-actions">
+            <button type="button" class="back-link results-home-link" id="resultsHomeLink">‹ 返回首页</button>
+            <div class="journey-progress" aria-label="观点测试进度">观点测试 <b id="journeyProgressNumber">01</b> / 03 <span class="demo-progress-badge" id="dataProgressBadge">演示数据</span></div>
+          </div>
+        </div>
+        <h1 id="journeyTitle">—</h1>
+      </div>
+
+      <div class="stage-bar" id="stageBar" aria-label="阅读进度">
+        <span class="stage-item" data-stage="1"><b>01</b><span>已表态</span></span>
+        <span class="stage-arrow" data-line="1" aria-hidden="true">→</span>
+        <span class="stage-item" data-stage="2"><b>02</b><span>阅读来源</span></span>
+        <span class="stage-arrow" data-line="2" aria-hidden="true">→</span>
+        <span class="stage-item" data-stage="3"><b>03</b><span>重新判断</span></span>
+      </div>
+
+      <section class="journey-view hidden" id="judgmentView" aria-label="初始表态">
+        <div class="panel judgment-lock" id="judgmentLock"></div>
+      </section>
+
+      <section class="journey-view hidden" id="readingView" aria-label="观点海图与推荐来源">
+        <div class="view-topline"><button type="button" class="back-link" data-back-view="judgment">‹ 返回初始判断</button><span>第二站 · 阅读来源</span></div>
+        <div class="reading-grid">
+          <div class="sea-map-panel">
+            <div class="sea-map-header">
+              <div><h3>观点海图</h3><span class="map-info" title="横轴表示立场倾向，纵轴表示可核验信息程度">ⓘ</span></div>
+              <span class="sea-map-hint">点击节点查看来源</span>
+            </div>
+            <div id="spectrum"></div>
+            <div class="sea-legend" id="seaLegend">
+              <span><span class="legend-dot lg-support"></span>支持 <b id="supportLegendCount">—</b></span>
+              <span><span class="legend-dot lg-neutral"></span>中立 <b id="neutralLegendCount">—</b></span>
+              <span><span class="legend-dot lg-oppose"></span>反对 <b id="opposeLegendCount">—</b></span>
+              <details class="sea-legend-more"><summary>展开图例⌄</summary><span>横轴是立场。虚线环 /「条件」表示论证带前提，「不足」表示证据不够。点位越高，可核验信息越完整。</span></details>
+            </div>
+          </div>
+
+          <div class="panel summary-panel">
+            <div id="summary"></div>
+          </div>
+
+          <div class="panel growth-panel">
+            <div id="growth"></div>
+          </div>
+
+          <section class="panel source-teaser-panel" aria-label="更多知乎来源">
+            <div class="source-teaser-heading">
+              <div>
+                <p class="panel-kicker">更多知乎来源</p>
+                <p class="source-teaser-intro">把同一问题放进不同经验里继续看。</p>
+              </div>
+              <button type="button" class="source-teaser-more" id="sourceTeaserMore">查看全部 →</button>
+            </div>
+            <div class="source-teaser-grid" id="sourceTeaserList"></div>
+          </section>
+        </div>
+        <div class="view-actions reading-actions">
+          <button type="button" class="primary journey-next" id="recheckNav">打开来源后，去重新判断 <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="journey-view hidden" id="sourcesView" aria-label="来源列表">
+        <div class="view-topline"><button type="button" class="back-link" data-back-view="reading">‹ 返回观点海图</button><span>来源航线</span></div>
+        <div class="panel sources"><div id="sources"></div></div>
+      </section>
+
+      <section class="journey-view hidden" id="recheckView" aria-label="二次判断">
+        <div class="view-topline"><button type="button" class="back-link" id="recheckBack" data-back-view="reading">‹ 返回阅读来源</button><span>第三站 · 重新判断</span></div>
+        <div class="panel second-panel"><div id="secondJudgmentMount"></div></div>
+      </section>
+
+      <section class="journey-view hidden" id="completeView" aria-label="完成后的观点记录">
+        <div class="view-topline"><button type="button" class="back-link" data-back-view="recheck">‹ 返回二次判断</button><span class="done-mark">✓ 已记录</span></div>
+        <div class="panel completion-panel">
+          <div id="completionSummary"></div>
+          <div id="completionActions" class="completion-actions"></div>
+          <div id="shareCardBox" class="hidden"></div>
+        </div>
+        <div class="panel compare hidden" id="compare">
+          <p class="panel-kicker">可选 · 对照知乎直答</p>
+          <h3>还想比较其他观点？</h3>
+          <p class="muted">先完成自己的 Before / After，再看官方 Agent 如何总结。真实模式不伪造结构化引用。</p>
+          <label class="stream-toggle"><input type="checkbox" id="daStream" checked /> 流式输出</label>
+          <button id="daBtn" class="da-btn">生成知乎直答对照</button>
+          <div id="daResult"></div>
+        </div>
+      </section>
+
+      <div class="panel downgrade-panel hidden" id="downgradePanel"></div>
+    </section>
+  </main>
+
+  <footer class="site" id="about">
+    <div class="wrap">
+      <span>知辩 Zhibian · 知乎观点学习和立场校准工具 · 先表达观点，再读知乎，最后重新判断</span>
+      <span id="footerDataStatus">演示数据 · 来源结构与真实体验一致</span>
+    </div>
+  </footer>
+
+  <script type="module" src="src/app.js?v=20260913-01"></script>
+</body>
+</html>

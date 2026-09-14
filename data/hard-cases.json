@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "version": 1,
+    "split": "hard",
+    "purpose": "专门覆盖否定、反问、转折、条件和混合观点的难例集。用于开发期发现拒判边界，不作为最终真实准确率。",
+    "independence": "样本按用户验收要求独立编写，未从当前词表逐条反推；标签是工程测试标签，真实质量结论仍需人工双标留出集。",
+    "label_guide": "expected 只能是 support、oppose、conditional、insufficient"
+  },
+  "cases": [
+    { "id": "hard-01", "topic": "观点边界", "statement": "不是说完全不可以，而是要看情况。", "expected": "conditional", "note": "否定 + 条件" },
+    { "id": "hard-02", "topic": "观点边界", "statement": "虽然有好处，但并不适合所有人。", "expected": "conditional", "note": "让步 + 适用边界" },
+    { "id": "hard-03", "topic": "执行时机", "statement": "我支持这个方向，但反对现在就执行。", "expected": "conditional", "note": "三维立场可表达混合，旧四簇映射为 conditional" },
+    { "id": "hard-04", "topic": "证据判断", "statement": "没有证据证明它有效。", "expected": "insufficient", "note": "证据不足而非反对事实" },
+    { "id": "hard-05", "topic": "个人经验", "statement": "我自己经历过，所以我认为这条路可行。", "expected": "support", "note": "个人经验" },
+    { "id": "hard-06", "topic": "证据判断", "statement": "如果条件不满足，结论就不成立。", "expected": "conditional", "note": "条件不满足时结论失效" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "runs": {
+    "gold": {
+      "date": "2026-08-28T07:40:14.203Z",
+      "total": 30,
+      "match": 2,
+      "pct": 6.7,
+      "dataset": "./regression-cases.json"
+    }
+  }
+}

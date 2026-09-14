@@ -1,0 +1,256 @@
+/* 高清推荐话题卡片：页面文字仍由 HTML 渲染，图片只负责底部摄影氛围。 */
+.reference-topic-cards {
+  padding: 24px 36px 14px;
+  border-top: 1px solid #edf0f2;
+  background: #fff;
+}
+
+.reference-topic-cards .section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 18px;
+}
+
+.reference-topic-cards .visually-muted-kicker { display: none; }
+.reference-topic-cards .section-heading h2 {
+  margin: 0;
+  color: #121820;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+.reference-topic-cards .section-note {
+  color: #6d7785;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.reference-topic-cards .topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.reference-topic-cards .topic-card {
+  position: relative;
+  min-height: 320px;
+  padding: 26px 24px;
+  overflow: hidden;
+  border: 1px solid #e4eaf0;
+  border-radius: 18px;
+  background: #f7fafc;
+  color: #101419;
+  text-align: left;
+  box-shadow: none;
+  isolation: isolate;
+}
+
+.reference-topic-cards .topic-card::before {
+  position: absolute;
+  z-index: -2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 57%;
+  content: '';
+  opacity: 1;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reference-topic-cards .topic-card::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: auto;
+  height: auto;
+  content: '';
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(247,250,252,1) 0 27%, rgba(247,250,252,.84) 43%, rgba(247,250,252,.16) 67%, rgba(247,250,252,0) 100%);
+  transform: none;
+}
+
+.reference-topic-cards .topic-card-learning::before {
+  background-image: url('/assets/topic-cards/learning.png');
+}
+.reference-topic-cards .topic-card-ai {
+  border: 1px solid #e4eaf0;
+  background: #f7fafc;
+}
+.reference-topic-cards .topic-card-ai::before {
+  background-image: url('/assets/topic-cards/ai.png');
+}
+.reference-topic-cards .topic-card-ai::after {
+  background: linear-gradient(180deg, rgba(248,251,255,1) 0 27%, rgba(248,251,255,.82) 43%, rgba(248,251,255,.12) 67%, rgba(248,251,255,0) 100%);
+}
+.reference-topic-cards .topic-card-career::before {
+  background-image: url('/assets/topic-cards/career.png');
+}
+
+.reference-topic-cards .topic-card-kicker,
+.reference-topic-cards .topic-card strong,
+.reference-topic-cards .topic-card small {
+  position: relative;
+  z-index: 2;
+  display: block;
+  max-width: 92%;
+}
+.reference-topic-cards .topic-card-kicker {
+  margin: 0 0 10px;
+  color: #1b6cbb;
+  font-size: 16px;
+  font-weight: 700;
+}
+.reference-topic-cards .topic-card strong {
+  max-width: 330px;
+  font-size: 25px;
+  line-height: 1.24;
+  letter-spacing: -.045em;
+}
+.reference-topic-cards .topic-card small {
+  max-width: 330px;
+  margin-top: 16px;
+  color: #8a929d;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.reference-topic-cards .topic-card-arrow {
+  right: 20px;
+  bottom: 16px;
+  z-index: 3;
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255,255,255,.9);
+  background: #fff;
+  color: #1478e8;
+  font-size: 28px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(40,72,102,.08);
+}
+.reference-topic-cards .topic-card:hover,
+.reference-topic-cards .topic-card:focus-visible {
+  transform: none;
+  border-color: #8bbdff;
+  box-shadow: 0 10px 24px rgba(22,38,52,.08);
+}
+.reference-topic-cards .topic-card-action {
+  display: inline-block;
+  margin-top: 14px;
+  color: #1478e8;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .reference-topic-cards .topic-grid { grid-template-columns: 1fr; }
+  .reference-topic-cards .topic-card { min-height: 260px; }
+}
+
+@media (max-width: 600px) {
+  .reference-topic-cards { padding: 20px 18px 14px; }
+  .reference-topic-cards .section-heading h2 { font-size: 22px; }
+  .reference-topic-cards .section-note { font-size: 13px; }
+  .reference-topic-cards .topic-card { min-height: 240px; padding: 20px; }
+  .reference-topic-cards .topic-card strong { font-size: 22px; }
+  .reference-topic-cards .topic-card small { font-size: 14px; }
+}
+
+/* Layer fix: keep the generated photograph in its own lower media band. */
+.reference-topic-cards .visually-muted-kicker {
+  display: block;
+  margin: 0 0 6px;
+  color: #1b6cbb;
+  font-size: 14px;
+  font-weight: 700;
+}
+.reference-topic-cards .section-heading { align-items: flex-end; }
+.reference-topic-cards .topic-card { min-height: 320px; padding: 0; background: #f8fafc; }
+.reference-topic-cards .topic-card::before,
+.reference-topic-cards .topic-card::after { display: none !important; }
+.reference-topic-cards .topic-card-copy {
+  position: absolute; z-index: 2; top: 0; right: 0; left: 0; min-height: 62%;
+  padding: 108px 34px 24px;
+  background: linear-gradient(180deg, #f8fafc 0 67%, rgba(248,250,252,.98) 80%, rgba(248,250,252,0) 100%);
+}
+.reference-topic-cards .topic-card-ai .topic-card-copy {
+  background: linear-gradient(180deg, #f8fbff 0 67%, rgba(248,251,255,.98) 80%, rgba(248,251,255,0) 100%);
+}
+.reference-topic-cards .topic-card-copy .topic-card-kicker,
+.reference-topic-cards .topic-card-copy strong,
+.reference-topic-cards .topic-card-copy small { position: relative; z-index: 1; display: block; max-width: 100%; }
+.reference-topic-cards .topic-card-copy .topic-card-kicker { margin: 0 0 10px; }
+.reference-topic-cards .topic-card-copy strong { font-size: 25px; line-height: 1.24; }
+.reference-topic-cards .topic-card-copy small { margin-top: 16px; color: #7c8794; font-size: 16px; line-height: 1.48; }
+.reference-topic-cards .topic-card-copy .topic-card-action { margin-top: auto; padding-top: 12px; }
+.reference-topic-cards .topic-card-media {
+  position: absolute; z-index: 0; right: 0; bottom: 0; left: 0; display: block; height: 53%; overflow: hidden;
+  background-position: center bottom; background-repeat: no-repeat; background-size: cover;
+}
+.reference-topic-cards .topic-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+.reference-topic-cards .topic-card-media::before {
+  position: absolute; top: 0; right: 0; left: 0; height: 40%; content: '';
+  background: linear-gradient(180deg, #f8fafc 0%, rgba(248,250,252,.88) 32%, rgba(248,250,252,0) 100%);
+}
+.reference-topic-cards .topic-card-ai .topic-card-media::before {
+  background: linear-gradient(180deg, #f8fbff 0%, rgba(248,251,255,.88) 32%, rgba(248,251,255,0) 100%);
+}
+.reference-topic-cards .topic-card-learning .topic-card-media { background-image: url('/assets/topic-cards/learning.webp'); }
+.reference-topic-cards .topic-card-ai .topic-card-media { background-image: url('/assets/topic-cards/ai.webp'); }
+.reference-topic-cards .topic-card-career .topic-card-media { background-image: url('/assets/topic-cards/career.webp'); }
+.reference-topic-cards .topic-card-arrow { right: 22px; bottom: 18px; }
+@media (max-width: 960px) { .reference-topic-cards .topic-card-copy { padding-top: 82px; } }
+@media (max-width: 600px) {
+  .reference-topic-cards .visually-muted-kicker { font-size: 12px; }
+  .reference-topic-cards .topic-card { min-height: 280px; }
+  .reference-topic-cards .topic-card-copy { padding: 76px 20px 18px; }
+  .reference-topic-cards .topic-card-copy strong { font-size: 22px; }
+  .reference-topic-cards .topic-card-copy small { font-size: 14px; }
+  .reference-topic-cards .topic-card-media { height: 50%; }
+}
+
+/* --------------------------------------------------------------------------
+   v1.4 排版修正（2026-09-10）：文字区与图片带彻底分层，三张卡对齐
+   问题：`.topic-card-copy` 的 padding-top 108px + min-height 62% + 渐隐背景，
+   会让不同长度的文案落进底部图片带，出现“文字压在照片上”和卡片间高低不齐。
+   方案：文字区固定高度、纯色底、无渐隐；图片带从固定位置开始，只保留顶部一条柔化。
+   ⚠️ 本文件在 styles.css 之后加载，同优先级规则以此文件为准。
+---------------------------------------------------------------------------- */
+.reference-topic-cards .topic-card { min-height: 340px; }
+.reference-topic-cards .topic-card-copy {
+  display: flex;
+  flex-direction: column;
+  height: 206px;
+  min-height: 0;
+  padding: 26px 26px 0;
+  background: none;
+}
+.reference-topic-cards .topic-card-ai .topic-card-copy { background: none; }
+.reference-topic-cards .topic-card-copy .topic-card-kicker { margin: 0 0 8px; }
+.reference-topic-cards .topic-card-copy strong { font-size: 24px; line-height: 1.28; }
+.reference-topic-cards .topic-card-copy small { margin-top: 10px; font-size: 15px; line-height: 1.5; }
+.reference-topic-cards .topic-card-media {
+  top: 206px;
+  bottom: 0;
+  height: auto;
+  background-color: #eef3f7;
+  background-position: center bottom;
+}
+.reference-topic-cards .topic-card-media img { object-position: center 38%; }
+.reference-topic-cards .topic-card-media::before { height: 24%; }
+.reference-topic-cards .topic-card-arrow { right: 20px; bottom: 18px; }
+
+@media (max-width: 960px) {
+  .reference-topic-cards .topic-card { min-height: 320px; }
+  .reference-topic-cards .topic-card-copy { height: 200px; padding: 22px 22px 0; }
+  .reference-topic-cards .topic-card-media { top: 200px; }
+}
+
+@media (max-width: 600px) {
+  .reference-topic-cards .topic-card { min-height: 300px; }
+  .reference-topic-cards .topic-card-copy { height: 186px; padding: 20px 20px 0; }
+  .reference-topic-cards .topic-card-copy strong { font-size: 21px; }
+  .reference-topic-cards .topic-card-copy small { font-size: 14px; }
+  .reference-topic-cards .topic-card-media { top: 186px; height: auto; }
+}

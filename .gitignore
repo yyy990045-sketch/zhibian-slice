@@ -1,0 +1,18 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.env.local
+*.log
+.DS_Store
+*.pem
+*.key
+*.sqlite
+*.sqlite3
+dist/
+.next/
+out/
+.zhihu-cli/
+
+# ---- 大体积媒体：单文件超过 100MB 会被 GitHub 拒绝推送 ----
+*.mov
